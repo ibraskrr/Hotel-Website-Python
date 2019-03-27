@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+
+	<head>
+
+		<title> Booking page</title> 
+		<link href="../static/css/stylesheet.css" rel="stylesheet">
+		 <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="1/png" href="../static/img/1.png"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		
+	</head>
+	<body>
+
+		<center> <img src= "../static/img/bookingpage.png" alt="" width="500"> </center>
+
+			<div class="container">
+				<!-- mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!--  on larger screens, but visible when the menu is collapsed -->
+					<a class="navbar-brand" href="index.html"></a>
+				</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li><a href="/">HOTELinn</a></li>
+				<li><a href="localattraction">Local attraction</a></li>
+				<li><a href="Bookingpage">Booking page </a></li>
+				<li><a href="contactus">Contact Us</a></li>
+				<li><a href="reviews">Reviews</a></li>	
+			  </ul>
+			</div>
+			<!-- this is where the user inputs their details -->
+				<div class="container">
+				<div class="col-sm-6">
+				<form action="addBooking" method="POST">
+				<fieldset id="personal_detail">
+					<legend> Contact information </legend>
+					
+					<label for="name">First Name: </label> <p>
+					<input type="text" name="firstname" id="name" required autofocus placeholder="Your name" title="Please enter in more than five letters"></p>
+					<label for="name">Surname: </label><p>
+					<input type="text" name="surname" id="surname" required  placeholder="Your surname"  title="Please enter in more than three letters">
+					</p>
+					<label for="name">Phone Number: </label><p>
+					<input type="tel" name="phone" id="phone" required placeholder="Your Phone Number"  title="Please enter in a valid phone number in this format">
+					</p>
+					<label for="name">Email ID: </label><p>
+					<input type="text" name="email" id="email" required placeholder="Your Email Address"  title="Please enter in a valid email">				
+					</p>
+					<label for="country">Country: </label><p>
+					<!--a drop box to pick the country which they are from -->
+					<select name="country" required>					
+						<option value="">-</option>
+						<option value="United Kingdom">United Kingdom</option>
+						<option value="United States">United States</option>
+						<option value="Australia">Australia</option>
+						<option value="France">France</option>
+						<option value="Germany">Germany</option>
+						<option value="Sri Lanka">Sri Lanka</option>
+						<option value="India">India</option>
+						<option value="Bangladesh">Bangladesh</option>
+						<option value="South Korea">South Korea</option>					
+						<option value="Japan">Japan</option>
+						<option value="Russia">Russia</option>
+						<option value="Saudi Arabia">Saudi Arabia</option>
+						<option value="Somalia">Somalia</option>
+						<option value="Kenya">Kenya</option>
+						<option value="Pakistan">Pakistan</option>
+						<option value="OTHERS">OTHERS</option>
+					</select>
+				</fieldset>
+			</div>
+				
+			
+				<div class="col-sm-6">
+				<fieldset id="booking_detail">
+					<legend>
+						Booking Details: 
+					</legend>
+					<label for="indate">Check-In Date:</label><p>
+					<input id="indate" type="date" name="indate" min="2017-12-07"/>
+					</p>
+					<label for="outdate">Check-Out Date:</label><p>
+					<input id="outdate" type="date" name="outdate">
+					</p>
+					<label for="roomNumber">Room No.</label>	<p>			
+					<input id="roomNumber" type="number" name="roomNumber" min="1" max="20">
+					</p>	
+					<p>Do you have any disablities?</p>
+					<label for="yes">Yes</label>					
+					<input id="yes" type="radio" name="meals" value="yes">
+					<label for="no">No</label>
+					<input id="no" type="radio" name="meals" value="no">
+					<br>
+					
+					
+					<br>
+					<input id="submit" type="submit" name="submit" value="submit" >
+					<input id="reset" type="reset" name="reset" value="clear this form">
+				</fieldset>				
+			</div>
+		</div>
+	</div>
+		<!--calling up flask  -->	
+	<div class="footer">This website was created by <strong>ibrahim and niv 2017</strong>.</div>			
+			<table>
+				{% for line in bList %}
+					<tr>
+						{% for item in line [ :4] %}
+						<td>
+							{{item}}
+						</td>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</table>
+		
+
+
+	</body> 
+</html>

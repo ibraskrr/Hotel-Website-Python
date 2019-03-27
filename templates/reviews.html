@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+
+	<head>
+		<title> Reviews </title> 
+		<link href="../static/css/stylesheet.css" rel="stylesheet">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="icon" type="1/png" href="../static/img/1.png"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- all libraries are imported from bootstrap website including the jquery --> 
+		</head>
+	<body>
+
+		<center> <img src= "../static/img/reviews.png" alt="" width="500"> </center>
+			<div class="container">
+				<!-- mobile display -->
+				<div class="navbar-header">	
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!--  on larger screens, but visible when the menu is collapsed -->
+					<a class="navbar-brand" href="index.html"></a>
+				</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li><a href="/">HOTELinn</a>
+				<li><a href="localattraction">Local attraction</a></li>
+				<li><a href="Bookingpage">Booking page </a></li>
+				<li><a href="contactus">Contact Us</a></li>
+				<li><a href="reviews">Reviews</a></li>
+			 </ul>
+			</div>
+		
+			<div class="container">
+				<form action="addreviews" method="POST">
+				<fieldset id="personal_detail">
+					<legend>Personal Details: </legend>					
+					<label for="name">First Name: </label><p>
+					<input type="text" name="firstname" id="name" required autofocus placeholder="Your name"  title="Please enter in more than five letters">
+					</p>
+					<label for="name">Surname: </label><p>
+					<input type="text" name="surname" id="surname" required placeholder="Your surname"  title="Please enter in more than three letters">
+					</p>
+					<label for="name">Drop a review here! </label><p>
+					<input type="text" name="Review" id="Review" required placeholder="Your review here." title="Please enter in your review."> 
+					</p>
+					<label for="Rating">Out of 10 how do you find this website?</label>
+					<select name="Rating" required>		
+						<option value="">-</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+					<br><br>
+					<input id="submit" type="submit" name="submit" value="Submit">
+					<input id="reset" type="reset" name="reset" value="Clear this form">					
+				</fieldset>  
+			</form>    
+
+			<table>
+				{% for line in cList %}
+					<tr>
+						{% for item in line [ :4] %}
+						<td>
+							{{item}}
+						</td>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</table>
+
+			<div class="container">
+				<div class="footer">This website was created by <strong>ibrahim and niv 2017</strong>.</div>
+			</div>		
+	
+	</body>
+</html>
